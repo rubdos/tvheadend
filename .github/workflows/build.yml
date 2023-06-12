@@ -193,7 +193,7 @@ jobs:
   build-rpm-native:
     runs-on: ubuntu-latest
     continue-on-error: true
-    name: Build on native ${{ matrix.container }}
+    name: Build on native fedora:${{ matrix.releasever }}
     strategy:
       matrix:
         releasever: ["37", "38", "39", "rawhide"]
