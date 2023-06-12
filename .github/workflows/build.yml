@@ -196,10 +196,13 @@ jobs:
     name: Build on native ${{ matrix.container }}
     strategy:
       matrix:
-        container: ["fedora:37", "fedora:38", "fedora:39", "fedora:rawhide"]
+        releasever: ["37", "38", "39", "rawhide"]
     container:
-      image: ${{ matrix.container }}
+      image: "fedora:${{ matrix.releasever }}"
     steps:
+      - name: rpmfusion-free
+        run: |
+          dnf install "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$releasever.noarch.rpm"
       - name: dependencies
         run: |
           dnf install -y gcc-c++ gcc-c++ which rpm-build rpmdevtools git make cmake gettext-devel dbus-devel avahi-devel openssl-devel zlib-devel libdvbcsa-devel wget bzip2 uriparser-devel pcre2-devel python python-requests ccache
