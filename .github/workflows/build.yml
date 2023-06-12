@@ -202,7 +202,7 @@ jobs:
     steps:
       - name: rpmfusion-free
         run: |
-          dnf install "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-${{matrix.releasever}}.noarch.rpm"
+          dnf install -y "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-${{matrix.releasever}}.noarch.rpm"
       - name: dependencies
         run: |
           dnf install -y gcc-c++ gcc-c++ which rpm-build rpmdevtools git make cmake gettext-devel dbus-devel avahi-devel openssl-devel zlib-devel libdvbcsa-devel wget bzip2 uriparser-devel pcre2-devel python python-requests ccache
