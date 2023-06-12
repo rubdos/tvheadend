@@ -1,8 +1,6 @@
 name: Build Tvheadend Repo
 
 on:
-  push:
-    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -191,7 +189,7 @@ jobs:
           CLOUDSMITH_API_KEY: ${{ secrets.CLOUDSMITH_KEY }}
 
   build-rpm-native:
-    runs-on: fedora-latest
+    runs-on: ubuntu-latest
     continue-on-error: true
     name: Build on native ${{ matrix.container }}
     strategy:
