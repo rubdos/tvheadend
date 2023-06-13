@@ -205,7 +205,7 @@ jobs:
           dnf install -y "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-${{matrix.releasever}}.noarch.rpm"
       - name: dependencies
         run: |
-          dnf install -y gcc-c++ gcc-c++ which rpm-build rpmdevtools git make cmake gettext-devel dbus-devel avahi-devel openssl-devel zlib-devel libdvbcsa-devel wget bzip2 uriparser-devel pcre2-devel python python-requests ccache
+          dnf install -y gcc-c++ gcc-c++ which rpm-build rpmdevtools git make cmake gettext-devel dbus-devel avahi-devel openssl-devel zlib-devel libdvbcsa-devel wget bzip2 uriparser-devel pcre2-devel python python-requests ccache systemd-units
       - uses: actions/checkout@v1
       - name: Workaround safe directory
         run: git config --global --add safe.directory /__w/tvheadend/tvheadend
